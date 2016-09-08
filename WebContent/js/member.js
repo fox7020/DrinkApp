@@ -81,8 +81,9 @@ function logOut(){
 	$("#memberWelcomePage").show();
 	$("#loginAccount").val("");
 	$("#loginPassword").val("");
+	//location.reload();
 	window.location = "index.html#member";
-	
+	$( ".orderItems" ).remove();
 }
 
 function register() {
@@ -123,14 +124,14 @@ function register() {
 }
 
 function addOrderItems() {
-	var title = "<div data-role='collapsible'>"
-	var appends = "<div data-role='collapsible'>";
+	var title = "<div data-role='collapsible' >"
+	var appends = "<div data-role='collapsible' class = 'orderItems'>";
 	var orderNum = "";
 	for (var i = 0; i < jsonCoordinate.length; i++) {
-
 		if (orderNum != jsonCoordinate[i].orderNum) {
 			appends += title;
 			orderNum = jsonCoordinate[i].orderNum;
+			//alert(orderNum);
 			appends += "<h1>" + orderNum + "</h1>";
 		}
 		appends += "<p>" + jsonCoordinate[i].productName + " 數量:"
@@ -190,6 +191,7 @@ function goToEditMember() {
 
 function goTomemberDetail() {
 	$("#memberDataEdit").hide();
+	getUserName(loginAccount)
 	$("#memberDetail").show();
 }
 
