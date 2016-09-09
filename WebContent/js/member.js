@@ -1,4 +1,4 @@
-var loginAccount;
+var loginAccount = "";
 var registerAccount;
 var registerPassword1;
 var registerPassword2;

@@ -390,7 +390,7 @@
 		<div data-role="main" class="ui-content" id="enterPage">
 			<br> <br> <br> <br> <br> <br> <br>
 			<div class="ui-field-contain">
-				<form method="get" action="">
+				<form>
 					<label for="issueName">姓名:</label> <input type="text"
 						name="issueName" id="issueName"
 						class="ui-btn ui-btn-inline ui-corner-all ui-shadow ui-icon-heart ui-btn-icon-left">
@@ -398,11 +398,11 @@
 						name="issueTel" id="issueTel"
 						class="ui-btn ui-btn-inline ui-corner-all ui-shadow ui-icon-heart ui-btn-icon-left">
 					<label for="issueContent">內容:</label>
-					<textarea name="issueContent"
+					<textarea name="issueContent" id = "issueContent"
 						class="ui-btn ui-btn-inline ui-corner-all ui-shadow ui-icon-heart ui-btn-icon-left"></textarea>
-					<input type="submit"
-						class="ui-btn ui-btn-inline ui-corner-all ui-shadow ui-icon-heart ui-btn-icon-left"
-						data-transition="slide" data-inline="true" value="送出">
+					<button type="button" id="btnIssue" onclick="sendIssue()"
+						class="ui-btn ui-btn-inline ui-corner-all ui-shadow ui-icon-heart ui-btn-icon-left">送出</button>
+					<label id="issueStatus"></label>
 				</form>
 			</div>
 		</div>
@@ -411,4 +411,5 @@
 	<script src="js/product.js"></script>
 	<script src="js/shop.js"></script>
 	<script src="js/member.js"></script>
+	<script src="js/issue.js"></script>
 </body>

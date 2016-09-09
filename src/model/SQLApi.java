@@ -364,5 +364,31 @@ public class SQLApi {
 		}
 		return data;
 	}
+	
+	protected String insertIssue(String content){
+		setDBProp();
+		String data = "";
+		try{
+			pstmt = con.prepareStatement("INSERT INTO issue(customerId,complaint,tel)VALUES(?,?,?)");
+			pstmt.setString(1,account);
+			pstmt.setString(2,content);
+			pstmt.setString(3,tel);
+			int isInsert = pstmt.executeUpdate();
+			JSONArray all = new JSONArray();
+			JSONObject jsonRow = new JSONObject();
+			if(isInsert == 1){
+				jsonRow.put("isInsertIssue", "true");
+			}
+			else{
+				jsonRow.put("isInsertIssue", "false");
+			}
+			all.put(jsonRow);
+			data = all.toString();
+		}
+		catch(Exception ee){
+			System.out.println(ee.toString());
+		}
+		return data;
+	}
 
 }
